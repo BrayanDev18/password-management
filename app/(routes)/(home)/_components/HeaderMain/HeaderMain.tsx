@@ -21,7 +21,7 @@ import { useState } from 'react'
 import { FormAddElement } from '../FormAddElement'
 
 export const HeaderMain = ({ userId }: HeaderProps) => {
-  const [typeElement, steTypeElement] = useState<'password' | 'folder' | ''>()
+  const [typeElement, steTypeElement] = useState<'password' | 'file' | ''>()
   const [openDialog, setOpenDialog] = useState(false)
   const [openDrop, setOpenDrop] = useState(false)
 
