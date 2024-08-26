@@ -43,7 +43,7 @@ export const TabsFormLogin = () => {
       redirect: false
     })
 
-    if (response?.ok) {
+    if (response?.status === 200) {
       toast({
         title: 'Success register'
       })
