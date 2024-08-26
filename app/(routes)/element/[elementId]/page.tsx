@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation'
 export default async function ElementPage({
   params
 }: {
-  params: { paramId: string }
+  params: { elementId: string }
 }) {
   const session = await getServerSession()
 
