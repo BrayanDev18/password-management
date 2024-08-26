@@ -4,10 +4,13 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const { email, password, userName } = await req.json()
-    const hashedPassword = await hash(password, 10)
+    const { email, password, userName } = await req.json();
 
-    if (!email || !password) new NextResponse("Missing required fields", { status: 400 })
+    if (!email || !password || !userName) {
+      return new NextResponse("Missing required fields", { status: 400 });
+    }
+
+    const hashedPassword = await hash(password, 10);
 
     const user = await db.user.create({
       data: {
@@ -15,11 +18,11 @@ export async function POST(req: Request) {
         hashedPassword,
         userName
       }
-    })
+    });
 
-    return NextResponse.json(user)
-
+    return NextResponse.json(user);
   } catch (error) {
-    return new NextResponse("Internal Error", { status: 500 })
+    console.error('Error during user registration:', error);
+    return new NextResponse("Internal Error", { status: 500 });
   }
 }
