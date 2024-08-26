@@ -1,7 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import { Draggable } from 'gsap/Draggable'
-import { AnimatedSVG } from './exampleAni'
 
 export const ImagesBack = () => {
   return (
